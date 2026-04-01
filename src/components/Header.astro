@@ -1,6 +1,7 @@
 ---
 import { site } from '../data/site';
 
+const base = import.meta.env.BASE_URL;
 const navLinks = [
   { href: '/', label: 'Inicio' },
   { href: '/nivel-inicial', label: 'Nivel Inicial' },
@@ -22,7 +23,7 @@ const currentPath = Astro.url.pathname;
         <div class="flex items-center gap-3">
           <!-- SVG as a colored badge -->
           <div class="w-9 h-9 rounded-full bg-brand flex items-center justify-center overflow-hidden">
-            <img src="/assets/img/logo.svg" alt="" class="w-8 h-8 object-contain brightness-0 invert" />
+            <img src={`${base}assets/img/logo.svg`} alt="" class="w-8 h-8 object-contain brightness-0 invert" />
           </div>
           <div class="hidden sm:block">
             <p class="text-sm font-heading font-700 text-brand leading-tight">Rosarito Vera Peñaloza</p>

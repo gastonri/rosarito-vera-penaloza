@@ -1,5 +1,7 @@
 ---
 import { site } from '../data/site';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="bg-brand-dark text-white">
@@ -11,7 +13,7 @@ import { site } from '../data/site';
       <div class="lg:col-span-2">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center overflow-hidden">
-            <img src="/assets/img/logo.svg" alt="" class="w-9 h-9 object-contain brightness-0 invert" />
+            <img src={`${base}assets/img/logo.svg`} alt="" class="w-9 h-9 object-contain brightness-0 invert" />
           </div>
           <div>
             <p class="font-heading font-700 text-white leading-tight">Rosarito Vera Peñaloza</p>

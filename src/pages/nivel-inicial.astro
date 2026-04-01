@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="Nivel Inicial"
+  description="Nivel Inicial del Colegio Rosarito Vera Peñaloza: Maternal y Jardín de Infantes en Córdoba. Estimulación temprana, juego y aprendizaje desde los 45 días de vida."
+>
+
+  <!-- HERO -->
+  <section class="relative py-24 bg-brand-light overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full -translate-y-1/2 translate-x-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full translate-y-1/2 -translate-x-1/2"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <a href="/" class="inline-flex items-center gap-2 text-white/70 text-sm hover:text-white transition-colors mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Volver al inicio
+        </a>
+        <div class="text-5xl mb-4">🌱</div>
+        <h1 class="font-heading font-800 text-4xl sm:text-5xl text-white mb-4">Nivel Inicial</h1>
+        <p class="text-white/80 text-xl font-heading font-400 mb-6">Maternal y Jardín de Infantes</p>
+        <p class="text-white/70 text-sm">45 días a 6 años · {site.schedule}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-accent font-heading font-600 text-sm uppercase tracking-widest">Nuestro nivel inicial</span>
+          <h2 class="font-heading font-700 text-3xl sm:text-4xl text-brand-dark mt-2 mb-6">
+            Los primeros pasos importan
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-5">
+            En el Nivel Inicial del Colegio Rosarito Vera Peñaloza, creemos que los primeros años de vida son determinantes en el desarrollo de cada persona. Por eso, diseñamos ambientes seguros, estimulantes y afectuosos donde los más pequeños pueden explorar, jugar y crecer con confianza.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Nuestras docentes están especializadas en primera infancia y trabajan en estrecha colaboración con las familias, reconociendo que la crianza y la educación son una tarea compartida.
+          </p>
+        </div>
+
+        <!-- Placeholder imagen -->
+        <div class="rounded-2xl overflow-hidden bg-brand-pale aspect-video flex items-center justify-center">
+          <div class="text-center text-brand-light">
+            <svg class="w-16 h-16 mx-auto mb-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <p class="text-sm opacity-50 font-heading">Foto del nivel inicial</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CICLOS -->
+  <section class="py-16 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-700 text-2xl sm:text-3xl text-brand-dark">Dos ciclos, una misma esencia</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Maternal -->
+        <div class="bg-white rounded-2xl p-8 border border-brand-pale shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-brand-pale flex items-center justify-center mb-5">
+            <span class="text-2xl">👶</span>
+          </div>
+          <h3 class="font-heading font-700 text-xl text-brand-dark mb-1">Maternal</h3>
+          <p class="text-accent font-heading font-600 text-sm mb-4">45 días a 2 años</p>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            Un espacio de máxima contención donde la estimulación temprana y el vínculo afectivo son el centro de la experiencia. Trabajamos el desarrollo motor, sensorial y emocional en un ambiente preparado y cuidado.
+          </p>
+          <ul class="space-y-2">
+            {['Estimulación temprana', 'Desarrollo psicomotriz', 'Vinculo afectivo seguro', 'Comunicación con las familias'].map(item => (
+              <li class="flex items-center gap-2 text-sm text-gray-600">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-light flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Jardín -->
+        <div class="bg-white rounded-2xl p-8 border border-brand-pale shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-brand-pale flex items-center justify-center mb-5">
+            <span class="text-2xl">🎨</span>
+          </div>
+          <h3 class="font-heading font-700 text-xl text-brand-dark mb-1">Jardín de Infantes</h3>
+          <p class="text-accent font-heading font-600 text-sm mb-4">3 a 6 años (sala de 3, 4 y 5)</p>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            El juego como herramienta central del aprendizaje. Los niños exploran, preguntan y construyen conocimiento en un ambiente que estimula la creatividad, la socialización y los primeros acercamientos a la lectura y la matemática.
+          </p>
+          <ul class="space-y-2">
+            {['Iniciación en lectoescritura', 'Pensamiento lógico-matemático', 'Expresión artística y musical', 'Educación física y movimiento', 'Convivencia y valores'].map(item => (
+              <li class="flex items-center gap-2 text-sm text-gray-600">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA PLACEHOLDER -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading font-700 text-2xl text-brand-dark mb-8 text-center">Vida en el jardín</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div class="rounded-xl overflow-hidden bg-brand-pale aspect-square flex items-center justify-center">
+            <div class="text-center text-brand-light opacity-40">
+              <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-brand">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-heading font-700 text-2xl sm:text-3xl text-white mb-4">
+        ¿Tu hijo/a está en edad de comenzar?
+      </h2>
+      <p class="text-white/80 mb-8">
+        Coordiná una visita y conocé las salas, el equipo docente y la propuesta de nuestro Nivel Inicial.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/inscripciones" class="px-8 py-4 rounded-full bg-white text-brand font-heading font-600 text-sm hover:bg-brand-pale transition-colors">
+          Inscripciones
+        </a>
+        <a href="/contacto" class="px-8 py-4 rounded-full border-2 border-white text-white font-heading font-600 text-sm hover:bg-white/10 transition-colors">
+          Consultar
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

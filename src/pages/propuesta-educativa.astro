@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pillars, site } from '../data/site';
+---
+
+<BaseLayout
+  title="Propuesta Educativa"
+  description="La propuesta educativa del Colegio Rosarito Vera Peñaloza. Un proyecto que privilegia el Saber, el Sentir, el Ser y el Hacer. Conocé nuestra misión y filosofía pedagógica."
+>
+
+  <!-- HERO -->
+  <section class="relative py-24 bg-gradient-to-br from-brand-dark to-brand overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-accent rounded-full -translate-y-1/2 translate-x-1/2"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-white/70 text-sm hover:text-white transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Volver al inicio
+      </a>
+      <h1 class="font-heading font-800 text-4xl sm:text-5xl text-white mb-6">Propuesta Educativa</h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
+        {site.tagline}
+      </p>
+    </div>
+  </section>
+
+  <!-- MISIÓN -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-accent font-heading font-600 text-sm uppercase tracking-widest">Nuestra misión</span>
+      <h2 class="font-heading font-700 text-3xl sm:text-4xl text-brand-dark mt-3 mb-8">¿Quiénes somos?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+        <p class="text-gray-600 leading-relaxed">
+          Somos un colegio privado, laico y mixto fundado en 1993 en Córdoba. Desde el primer día, construimos un proyecto educativo propio, que no responde a franquicias ni modelos importados, sino a la convicción de que la educación verdadera se construye en comunidad, con presencia, tiempo y compromiso.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Nuestro colegio atiende los tres niveles —Inicial, Primario y Secundario— con una visión coherente del desarrollo humano: cada etapa se articula con la anterior y prepara para la siguiente, en un camino que va desde los primeros meses de vida hasta la graduación con el título de Bachiller.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOS 4 PILARES -->
+  <section class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-accent font-heading font-600 text-sm uppercase tracking-widest">Los cuatro pilares</span>
+        <h2 class="font-heading font-700 text-3xl sm:text-4xl text-brand-dark mt-3">
+          El Saber, el Sentir, el Ser y el Hacer
+        </h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
+          Estas cuatro dimensiones no son un slogan: son el criterio con el que tomamos cada decisión pedagógica, organizativa y humana dentro del colegio.
+        </p>
+      </div>
+
+      <div class="space-y-8">
+        {pillars.map((pillar, i) => (
+          <div class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-16`}>
+            <div class="flex-1">
+              <div class="inline-flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-brand text-white flex items-center justify-center font-heading font-700 text-lg">
+                  {pillar.key[0]}
+                </div>
+                <h3 class="font-heading font-700 text-2xl text-brand-dark">{pillar.key}</h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed text-lg mb-4">{pillar.description}</p>
+              <p class="text-gray-500 leading-relaxed text-sm">
+                {pillar.key === 'Saber' && 'La transmisión del conocimiento sigue siendo un acto central de la educación. No renunciamos a que los alumnos aprendan contenidos rigurosos, actualizados y significativos. El conocimiento bien aprendido libera y habilita.'}
+                {pillar.key === 'Sentir' && 'Un colegio donde no se puede sentir no puede educar bien. La dimensión emocional no es un extra: es parte constitutiva del aprendizaje. Cuidamos los vínculos, la pertenencia, la escucha y el bienestar de toda la comunidad.'}
+                {pillar.key === 'Ser' && 'La educación tiene que servir para que cada persona pueda ser quien es y quien quiere ser. Acompañamos el desarrollo de la identidad, la autonomía y los valores con respeto y firmeza.'}
+                {pillar.key === 'Hacer' && 'El conocimiento que no se traduce en acción no completa su ciclo. Promovemos que los alumnos sean protagonistas: que diseñen, construyan, resuelvan, creen y se equivoquen con seguridad.'}
+              </p>
+            </div>
+            <div class="w-full md:w-72 flex-shrink-0 rounded-2xl overflow-hidden bg-brand-pale aspect-square flex items-center justify-center">
+              <div class="text-center text-brand-light opacity-40">
+                <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CARACTERÍSTICAS -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-accent font-heading font-600 text-sm uppercase tracking-widest">Lo que nos define</span>
+        <h2 class="font-heading font-700 text-3xl sm:text-4xl text-brand-dark mt-3">Características institucionales</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Laico y pluralista', desc: 'Un espacio que respeta la diversidad de creencias, culturas y familias. La convivencia democrática es un valor que enseñamos con el ejemplo.' },
+          { title: 'Mixto e inclusivo', desc: 'Varones y mujeres comparten aulas y proyectos. La diversidad enriquece el aprendizaje y prepara para la vida.' },
+          { title: 'Comunidad real', desc: 'Los docentes, alumnos y familias se conocen. No somos un colegio masivo: somos una comunidad que cuida sus vínculos.' },
+          { title: 'Continuidad educativa', desc: 'Tres niveles articulados bajo un mismo proyecto. Los alumnos pueden hacer toda su trayectoria escolar en el colegio.' },
+          { title: 'Equipo docente estable', desc: 'Muchos de nuestros docentes tienen más de 20 años en la institución. Esa estabilidad es un bien pedagógico.' },
+          { title: 'Sede única', desc: 'Viracocha 6933, Quintas de Argüello. Un solo campus que concentra los tres niveles y facilita la vida familiar.' },
+        ].map(item => (
+          <div class="bg-brand-50 rounded-2xl p-6 border border-brand-pale">
+            <div class="w-8 h-8 rounded-lg bg-brand flex items-center justify-center mb-4">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="font-heading font-600 text-brand-dark mb-2">{item.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-brand">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-heading font-700 text-2xl sm:text-3xl text-white mb-4">
+        ¿La propuesta te convence?
+      </h2>
+      <p class="text-white/80 mb-8">
+        El siguiente paso es conocernos en persona. Visitá el colegio y comprobalo.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/inscripciones" class="px-8 py-4 rounded-full bg-accent text-white font-heading font-600 text-sm hover:bg-accent-dark transition-colors">
+          Inscripciones
+        </a>
+        <a href="/contacto" class="px-8 py-4 rounded-full border-2 border-white text-white font-heading font-600 text-sm hover:bg-white/10 transition-colors">
+          Escribinos
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

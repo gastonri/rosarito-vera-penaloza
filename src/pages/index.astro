@@ -1,0 +1,264 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, levels, pillars } from '../data/site';
+---
+
+<BaseLayout
+  title="Inicio"
+  description="Colegio de Educación Privada en Córdoba. Nivel Inicial, Primario y Secundario. Un proyecto educativo que privilegia el Saber, el Sentir, el Ser y el Hacer."
+>
+
+  <!-- ─── HERO ─── -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <picture>
+        <source media="(orientation: portrait)" srcset="/assets/img/backgroundvh.jpg" />
+        <img
+          src="/assets/img/background.jpg"
+          alt=""
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+      </picture>
+      <div class="absolute inset-0 bg-brand-dark/30"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center text-white py-20">
+      <!-- Logo -->
+      <div class="flex justify-center mb-8">
+        <img
+          src="/assets/img/logo.svg"
+          alt="Colegio Rosarito Vera Peñaloza"
+          class="h-28 sm:h-36 w-auto"
+        />
+      </div>
+
+      <p class="text-accent font-heading font-600 text-sm sm:text-base uppercase tracking-widest mb-4">
+        Colegio de Educación Privada · Córdoba
+      </p>
+
+      <h1 class="font-heading font-800 text-3xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+        Educamos para<br />
+        <span class="text-accent">la vida completa</span>
+      </h1>
+
+      <p class="text-white/60 text-base sm:text-lg italic mb-4">
+        "{site.slogan}"
+      </p>
+
+      <p class="text-white/80 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+        {site.tagline}
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/propuesta-educativa"
+          class="px-8 py-4 rounded-full border-2 border-white text-white font-heading font-600 text-sm hover:bg-white hover:text-brand-dark transition-all duration-150"
+        >
+          Conocé el colegio
+        </a>
+        <a
+          href="/inscripciones"
+          class="px-8 py-4 rounded-full bg-accent text-white font-heading font-600 text-sm hover:bg-accent-dark transition-colors duration-150"
+        >
+          Inscripciones 2025
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ─── NIVELES ─── -->
+  <section class="py-20 bg-white" id="niveles">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-accent font-heading font-600 text-sm uppercase tracking-widest">Oferta educativa</span>
+        <h2 class="font-heading font-700 text-3xl sm:text-4xl text-brand-dark mt-2">Los tres niveles</h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">
+          Desde los primeros meses de vida hasta la graduación secundaria, acompañamos cada etapa del camino.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {levels.map((level, i) => (
+          <a
+            href={`/${level.slug}`}
+            class="group relative bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
+          >
+            <!-- Color bar -->
+            <div class={`h-1.5 ${i === 0 ? 'bg-brand-light' : i === 1 ? 'bg-brand' : 'bg-brand-dark'}`}></div>
+
+            <div class="p-8 flex flex-col flex-1">
+              <div class="text-4xl mb-4">{level.icon}</div>
+              <h3 class="font-heading font-700 text-xl text-gray-900 mb-1 group-hover:text-brand transition-colors">
+                {level.name}
+              </h3>
+              <p class="text-accent font-heading font-600 text-sm mb-3">{level.subtitle}</p>
+              <p class="text-gray-500 text-sm leading-relaxed flex-1">{level.description}</p>
+
+              <div class="mt-6 flex items-center justify-between">
+                <span class="text-xs text-gray-400 font-heading">{level.ages}</span>
+                <span class="text-brand font-heading font-600 text-sm group-hover:gap-2 flex items-center gap-1 transition-all">
+                  Ver más
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROPUESTA (4 PILARES) ─── -->
+  <section class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-accent font-heading font-600 text-sm uppercase tracking-widest">Nuestra identidad</span>
+        <h2 class="font-heading font-700 text-3xl sm:text-4xl text-brand-dark mt-2">La propuesta educativa</h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">
+          Cuatro dimensiones que definen cada decisión pedagógica y cada vínculo dentro de la comunidad escolar.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {pillars.map((pillar) => (
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-brand-pale hover:border-brand-light transition-colors duration-200">
+            <div class="w-12 h-12 rounded-xl bg-brand-pale flex items-center justify-center mb-5">
+              {pillar.icon === 'book' && (
+                <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              )}
+              {pillar.icon === 'heart' && (
+                <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              )}
+              {pillar.icon === 'person' && (
+                <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              )}
+              {pillar.icon === 'hand' && (
+                <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+                </svg>
+              )}
+            </div>
+            <h3 class="font-heading font-700 text-xl text-brand-dark mb-3">{pillar.key}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{pillar.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="/propuesta-educativa"
+          class="inline-flex items-center gap-2 text-brand font-heading font-600 text-sm hover:gap-3 transition-all"
+        >
+          Conocé la propuesta completa
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── POR QUÉ ELEGIRNOS ─── -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <div>
+          <span class="text-accent font-heading font-600 text-sm uppercase tracking-widest">Comunidad</span>
+          <h2 class="font-heading font-700 text-3xl sm:text-4xl text-brand-dark mt-2 mb-6">
+            ¿Por qué elegir<br />Rosarito Vera Peñaloza?
+          </h2>
+          <p class="text-gray-500 leading-relaxed mb-8">
+            Desde 1993, construimos una comunidad educativa donde cada alumno es conocido por su nombre, valorado en su singularidad y acompañado en su crecimiento integral.
+          </p>
+
+          <ul class="space-y-5">
+            {[
+              { title: 'Trayectoria de más de 30 años', desc: 'Experiencia acumulada y confianza de generaciones de familias cordobesas.' },
+              { title: 'Docentes comprometidos', desc: 'Equipo estable, con alta permanencia y profundo conocimiento de cada alumno.' },
+              { title: 'Proyecto educativo propio', desc: 'No somos una franquicia. Nuestra propuesta es genuina, construida desde adentro.' },
+              { title: 'Escala humana', desc: 'Un colegio que se conoce, donde las familias y docentes forman comunidad real.' },
+            ].map((item) => (
+              <li class="flex items-start gap-4">
+                <div class="w-6 h-6 rounded-full bg-brand-pale flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-heading font-600 text-gray-800 text-sm">{item.title}</p>
+                  <p class="text-gray-500 text-sm mt-0.5">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-2 gap-6">
+          {[
+            { value: '+30', label: 'años de trayectoria', suffix: '' },
+            { value: '3', label: 'niveles educativos', suffix: '' },
+            { value: '8:00', label: 'a 13:30 hs, lunes a viernes', suffix: '' },
+            { value: '1993', label: 'año de fundación', suffix: '' },
+          ].map((stat) => (
+            <div class="bg-brand-pale rounded-2xl p-6 text-center">
+              <p class="font-heading font-800 text-4xl text-brand">{stat.value}</p>
+              <p class="text-gray-600 text-sm mt-2 leading-tight">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA CONTACTO ─── -->
+  <section class="py-16 bg-brand">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-heading font-700 text-2xl sm:text-3xl text-white mb-4">
+        ¿Querés conocer el colegio?
+      </h2>
+      <p class="text-white/80 mb-8 max-w-xl mx-auto">
+        Escribinos para coordinar una visita, pedir información sobre inscripciones o hacer cualquier consulta.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contacto"
+          class="px-8 py-4 rounded-full bg-white text-brand font-heading font-600 text-sm hover:bg-brand-pale transition-colors duration-150"
+        >
+          Escribinos
+        </a>
+        <a
+          href={site.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-8 py-4 rounded-full border-2 border-white text-white font-heading font-600 text-sm hover:bg-white/10 transition-colors duration-150 flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

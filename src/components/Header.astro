@@ -1,0 +1,117 @@
+---
+import { site } from '../data/site';
+
+const navLinks = [
+  { href: '/', label: 'Inicio' },
+  { href: '/nivel-inicial', label: 'Nivel Inicial' },
+  { href: '/nivel-primario', label: 'Nivel Primario' },
+  { href: '/nivel-secundario', label: 'Nivel Secundario' },
+  { href: '/propuesta-educativa', label: 'Propuesta' },
+  { href: '/contacto', label: 'Contacto' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0" aria-label="Inicio">
+        <div class="flex items-center gap-3">
+          <!-- SVG as a colored badge -->
+          <div class="w-9 h-9 rounded-full bg-brand flex items-center justify-center overflow-hidden">
+            <img src="/assets/img/logo.svg" alt="" class="w-8 h-8 object-contain brightness-0 invert" />
+          </div>
+          <div class="hidden sm:block">
+            <p class="text-sm font-heading font-700 text-brand leading-tight">Rosarito Vera Peñaloza</p>
+            <p class="text-xs text-gray-500 leading-tight">Educación Privada · Córdoba</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Navegación principal">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={`px-3 py-2 rounded-md text-sm font-heading font-500 transition-colors duration-150
+              ${currentPath === link.href
+                ? 'text-brand bg-brand-pale'
+                : 'text-gray-600 hover:text-brand hover:bg-brand-50'
+              }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA + hamburger -->
+      <div class="flex items-center gap-3">
+        <a
+          href="/inscripciones"
+          class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-accent text-white text-sm font-heading font-600 hover:bg-accent-dark transition-colors duration-150"
+        >
+          Inscripciones
+        </a>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="lg:hidden p-2 rounded-md text-gray-500 hover:text-brand hover:bg-brand-50 transition-colors"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Abrir menú"
+        >
+          <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <nav id="mobile-menu" class="hidden lg:hidden pb-4" aria-label="Menú móvil">
+      <div class="flex flex-col gap-1 pt-2 border-t border-gray-100">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={`px-4 py-3 rounded-md text-sm font-heading font-500 transition-colors
+              ${currentPath === link.href
+                ? 'text-brand bg-brand-pale'
+                : 'text-gray-600 hover:text-brand hover:bg-brand-50'
+              }`}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="/inscripciones"
+          class="mt-2 px-4 py-3 rounded-full bg-accent text-white text-sm font-heading font-600 text-center hover:bg-accent-dark transition-colors"
+        >
+          Inscripciones
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    iconOpen?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

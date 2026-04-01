@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="Nivel Primario"
+  description="Nivel Primario del Colegio Rosarito Vera Peñaloza. Educación integral de 1° a 6° grado en Córdoba. Formación en valores, conocimiento y desarrollo personal."
+>
+
+  <!-- HERO -->
+  <section class="relative py-24 bg-brand overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full -translate-y-1/2 translate-x-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full translate-y-1/2 -translate-x-1/2"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <a href="/" class="inline-flex items-center gap-2 text-white/70 text-sm hover:text-white transition-colors mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Volver al inicio
+        </a>
+        <div class="text-5xl mb-4">📚</div>
+        <h1 class="font-heading font-800 text-4xl sm:text-5xl text-white mb-4">Nivel Primario</h1>
+        <p class="text-white/80 text-xl font-heading font-400 mb-6">1° a 6° grado</p>
+        <p class="text-white/70 text-sm">6 a 12 años · {site.schedule}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-accent font-heading font-600 text-sm uppercase tracking-widest">Nuestro nivel primario</span>
+          <h2 class="font-heading font-700 text-3xl sm:text-4xl text-brand-dark mt-2 mb-6">
+            Construimos las bases de por vida
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-5">
+            El nivel primario es donde los alumnos consolidan las herramientas fundamentales del aprendizaje: leer, escribir, pensar matemáticamente, comprender el mundo natural y social. En el Colegio Rosarito, todo eso se integra con una formación en valores que hace de cada alumno una persona íntegra.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Nuestro equipo docente, con amplia experiencia y compromiso sostenido, acompaña a cada grupo con una mirada atenta a las necesidades individuales y a la dinámica colectiva del aula.
+          </p>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden bg-brand-pale aspect-video flex items-center justify-center">
+          <div class="text-center text-brand-light">
+            <svg class="w-16 h-16 mx-auto mb-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <p class="text-sm opacity-50 font-heading">Foto del nivel primario</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS -->
+  <section class="py-16 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-heading font-700 text-2xl sm:text-3xl text-brand-dark">Áreas de aprendizaje</h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto text-sm">
+          Una currícula completa, enriquecida con espacios que desarrollan la expresión, el movimiento y el pensamiento.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { icon: '✍️', title: 'Lengua y Literatura', desc: 'Lectura, escritura, comprensión y producción textual. La palabra como herramienta de pensamiento y comunicación.' },
+          { icon: '🔢', title: 'Matemática', desc: 'Pensamiento lógico-matemático, resolución de problemas y construcción de conceptos desde lo concreto a lo abstracto.' },
+          { icon: '🌍', title: 'Ciencias Sociales', desc: 'Historia, geografía y formación ciudadana que construyen identidad y comprensión del mundo compartido.' },
+          { icon: '🔬', title: 'Ciencias Naturales', desc: 'Exploración, observación y experimentación del entorno natural. Curiosidad científica desde temprana edad.' },
+          { icon: '🎨', title: 'Educación Artística', desc: 'Plástica, música y expresión corporal como vías de comunicación, sensibilidad y desarrollo creativo.' },
+          { icon: '⚽', title: 'Educación Física', desc: 'Desarrollo motor, juego cooperativo, hábitos saludables y trabajo en equipo.' },
+        ].map(area => (
+          <div class="bg-white rounded-2xl p-6 border border-brand-pale shadow-sm">
+            <div class="text-3xl mb-4">{area.icon}</div>
+            <h3 class="font-heading font-600 text-brand-dark mb-2">{area.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{area.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA PLACEHOLDER -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading font-700 text-2xl text-brand-dark mb-8 text-center">La vida en el primario</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {Array.from({ length: 4 }).map(() => (
+          <div class="rounded-xl overflow-hidden bg-brand-pale aspect-square flex items-center justify-center">
+            <div class="text-center text-brand-light opacity-40">
+              <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-brand">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-heading font-700 text-2xl sm:text-3xl text-white mb-4">
+        ¿Estás buscando primario para tu hijo/a?
+      </h2>
+      <p class="text-white/80 mb-8">
+        Visitá el colegio, conocé las aulas y el equipo docente. Estamos para responder tus preguntas.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/inscripciones" class="px-8 py-4 rounded-full bg-white text-brand font-heading font-600 text-sm hover:bg-brand-pale transition-colors">
+          Inscripciones
+        </a>
+        <a href="/contacto" class="px-8 py-4 rounded-full border-2 border-white text-white font-heading font-600 text-sm hover:bg-white/10 transition-colors">
+          Consultar
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
